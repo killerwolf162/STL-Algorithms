@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
+#include <numeric>
 #include <math.h>
 
 bool afterPurple(std::string i) {return (i > "purple"); }
@@ -134,6 +135,14 @@ int main()
 		std::vector<double> numbers{ 10, 324422, 6, -23, 234.5, 654.1, 3.1242, -9.23, 635 };
 		// 3) de som, het gemiddelde, en het product van alle getallen te berekenen
 
+		auto sum = std::accumulate(numbers.begin(), numbers.end(), 0);
+		std::cout << "sum of all numbers: " << sum << std::endl;
+
+		auto average = (std::accumulate(numbers.begin(), numbers.end(), 0) / numbers.size());
+		std::cout << "average of all numbers: " << average << std::endl;
+
+		auto product = std::accumulate(numbers.begin(), numbers.end(), 1, std::multiplies<double>());
+		std::cout << "product of all numbers: " << product << std::endl;
 	}
 
 	return 0;
