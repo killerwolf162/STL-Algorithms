@@ -98,8 +98,36 @@ int main()
 	{
 		std::vector<double> numbers{ 10, 324422, 6, -23, 234.5, 654.1, 3.1242, -9.23, 635 };
 		// 2) voor alle elementen te bepalen of ze even of oneven zijn
+		std::vector<double> oddVector;
+		std::vector<double> evenVector;
 
-		
+		std::sort(numbers.begin(), numbers.end());
+
+		for (auto& number : numbers)
+		{
+			if (fmod(number, 2) == 0)
+			{
+				evenVector.push_back(number);
+			}
+			else 
+			{
+				oddVector.push_back(number);
+			}
+		}
+
+		std::cout << "Even numbers are: ";
+		for (auto& number : evenVector)
+		{
+			std::cout << number << " ";
+		}
+		std::cout << std::endl;
+
+		std::cout << "odd numbers are: ";
+		for (auto& number : oddVector)
+		{
+			std::cout << number << " ";
+		}
+		std::cout << std::endl;	
 	}
 
 	{
